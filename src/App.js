@@ -4,6 +4,7 @@ import View from "./View";
 import Popup from "./Popup";
 import PostsList from "./PostsList";
 import axios from "axios";
+import EditForm from "./EditForm";
 
 class App extends Component {
   state = {
@@ -15,7 +16,9 @@ class App extends Component {
       message: "",
     },
     showPopup: false,
+    updatePopup: false,
     data: [],
+    currentNote: {},
   };
 
   componentDidMount() {
@@ -56,9 +59,39 @@ class App extends Component {
     });
   };
 
+  updateHandler = (item) => {
+    this.setState({ updatePopup: true, currentNote: item });
+  };
+
+  inputUpdateHandler = (e) => {
+    this.setState({
+      currentNote: {
+        ...this.state.currentNote,
+        [e.target.name]: e.target.value,
+      },
+    });
+  };
+
+  postHandler = (id) => {
+    axios
+      .put(`http://localhost:3010/notes/${id}`, this.state.currentNote)
+      .then((res) => res.data);
+  };
+
+  updatePutHandler = (id) => {
+    axios.put(`http://localhost:3010/notes/${id}`, this.state.currentNote);
+  };
+
   render() {
     return (
       <div>
+        {this.state.updatePopup && (
+          <EditForm
+            {...this.state.currentNote}
+            change={this.updateHandler}
+            submit={this.updatePutHandler(this.state.currentNote.id)}
+          />
+        )}
         <Form change={this.inputHandler} submit={this.popUpHandler} />
         <View {...this.state.inputData} />
         <PostsList data={this.state.data} delete={this.deleteHandler} />

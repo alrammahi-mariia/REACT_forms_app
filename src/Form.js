@@ -9,20 +9,21 @@ const Form = (props) => {
           type="text"
           name="firstname"
           id="firstname"
-          placeholder="First Name"
           required
+          defaultValue={props.firstname}
         />
         <label htmlFor="Last name">Last name</label>
         <input
           type="text"
           name="lastname"
           id="lastname"
-          placeholder="Last Name"
+          required
+          defaultValue={props.lastname}
         />
         <label htmlFor="Phonenumber">Phone number</label>
-        <input type="number" name="phone" placeholder="Phone number" />
+        <input type="number" name="phone" required defaultValue={props.phone} />
         <label htmlFor="Role">Role</label>
-        <select name="role" id="role" placeholder="Role" required>
+        <select name="role" id="role" required defaultValue={props.role}>
           <option value="" invalid="true">
             Please choose a role
           </option>
@@ -38,8 +39,9 @@ const Form = (props) => {
           id="message"
           type="textarea"
           name="message"
-          required
           placeholder="Message"
+          required
+          defaultValue={props.message}
         />
         <input type="submit" value="Submit" />
       </form>
