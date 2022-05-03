@@ -1,0 +1,44 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "firstname": "Emmie",
+      "lastname": "White",
+      "phone": "09967674999",
+      "role": "teacher",
+      "message": "some really important message"
+    },
+    {
+      "id": 2,
+      "firstname": "John",
+      "lastname": "Doe",
+      "phone": "9699669",
+      "role": "director",
+      "message": "some message"
+    },
+    {
+      "id": 3,
+      "firstname": "Kolin",
+      "lastname": "Black",
+      "phone": "909093333",
+      "role": "student",
+      "message": "some not important message"
+    },
+    {
+      "id": 4,
+      "firstname": "Kolin",
+      "lastname": "Black",
+      "phone": "909093333",
+      "role": "student",
+      "message": "some not important message"
+    },
+    {
+      "firstname": "Mariia",
+      "lastname": "Al-Rammahi",
+      "phone": "8989898",
+      "role": "Designer",
+      "message": "jfkjslkdjs",
+      "id": 5
+    }
+  ]
+}
